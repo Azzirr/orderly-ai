@@ -7,6 +7,7 @@ import { OrderAiContext } from "../../Context/ContextProvider";
 import Modal from "@mui/material/Modal";
 import useAuth from "../../Hooks/useAuth";
 import useRegister from "../../Hooks/useRegister";
+import CloseButton from "../../assets/clarity_close-line.png";
 
 export function RegisterModal() {
  const { changeModal, isModalOpen, handleModalClose } = useContext(OrderAiContext);
@@ -62,7 +63,7 @@ export function RegisterModal() {
   <Modal open={isModalOpen} onClose={handleModalClose}>
    <RegisterModalContainer>
     <CloseModalButtonMobile>
-     <img src="../../../src/assets/clarity_close-line.png" onClick={handleModalClose} />
+     <img src={CloseButton} alt="Close button"  onClick={handleModalClose} />
     </CloseModalButtonMobile>
     <ModalHeader>Sign Up</ModalHeader>
     <ModalSubHeader>Start using OrderlyAI today!</ModalSubHeader>

@@ -76,39 +76,6 @@ export const ColorCircle = styled("div")({
  },
 });
 
-// export const StyledImageContainer = styled("div")({
-//  display: "flex",
-//  flexDirection: "column",
-//  justifyContent: "center",
-//  alignItems: "center",
-//  maxWidth: "100%",
-//  height: "260px",
-//  margin: "10px auto",
-// });
-
-// export const StyledImage = styled("img")({
-//  width: "auto",
-//  maxWidth: "100%",
-//  height: "auto",
-//  maxHeight: "100%",
-//  display: "block",
-//  margin: "10px auto",
-//  borderRadius: "10px",
-//  border: "2px solid #fff",
-// });
-
-// export const StyledImagePreview = styled("div")({
-//  height: "260px",
-//  display: "flex",
-//  flexDirection: "column",
-//  justifyContent: "center",
-//  alignItems: "center",
-//  width: "100%",
-//  margin: "10px auto",
-//  borderRadius: "10px",
-//  border: "2px solid #fff",
-// });
-
 export const StyledPreviewText = styled(Typography)(() => ({
  color: "#666",
  variant: "subtitle2",

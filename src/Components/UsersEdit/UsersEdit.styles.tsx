@@ -1,6 +1,5 @@
 import { Box, FormControlLabel, List, ListItem, Typography, styled } from "@mui/material";
 import { fontSizeVar } from "../../Theme/variables";
-import { StyledButton } from "../../ui";
 
 export const UsersEditContainer = styled(Box)(({ theme: theme }) => ({
  height: "fit-content",
@@ -19,7 +18,7 @@ export const UsersEditList = styled(List)(() => ({
  color: fontSizeVar.loginModalDefault,
 }));
 
-export const UsersEditListRow = styled(Typography)(({}) => ({
+export const UsersEditListRow = styled(Typography)(() => ({
  display: "flex",
  verticalAlign: "center",
  textAlign: "center",
@@ -34,13 +33,9 @@ export const UsersEditListItem = styled(ListItem)(() => ({
  flexBasis: "200%",
 }));
 
-export const UsersEditCheckbox = styled(FormControlLabel)(({}) => ({
+export const UsersEditCheckbox = styled(FormControlLabel)(() => ({
  alignSelf: "flex-end", 
  width: "100%",
  margin: "auto 0 auto 0",
  paddingRight: "10px",
-}));
-
-export const UsersEditButton = styled(StyledButton)(({ }) => ({
-    
 }));

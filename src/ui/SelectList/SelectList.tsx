@@ -15,7 +15,6 @@ export const SelectList: React.FC<SelectListProps> = ({ field, name, items }) =>
  return (
   <FormControl fullWidth variant="outlined">
    <Select
-    //*Nie narzekac ze tutaj jest SX, bo jak dam w styles.tsx i dam importa to się cały komponent rozwala
     sx={(theme) => ({
      borderRadius: "10px",
      height: "36px",

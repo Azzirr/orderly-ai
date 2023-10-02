@@ -4,6 +4,7 @@ import { CategoryData, ProductData, User } from "./types";
 
 type OrderAiContextType = {
  isModalOpen: boolean;
+ isLoading: boolean;
  currentModal: string;
  categories: CategoryData[] | null;
  jsonData: CategoryData[] | null;
@@ -40,6 +41,7 @@ type OrderAiContextProviderProps = {
 
 export const OrderAiContext = createContext<OrderAiContextType>({
  isModalOpen: false,
+ isLoading: false,
  currentModal: "none",
  categories: null,
  jsonData: null,

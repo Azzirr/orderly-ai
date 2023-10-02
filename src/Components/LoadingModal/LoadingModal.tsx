@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import { OrderAiContext } from "../../Context/ContextProvider";
 import Modal from "@mui/material/Modal";
-import CircularProgress from '@mui/material/CircularProgress';
+import CircularProgress from "@mui/material/CircularProgress";
 import { Loading } from "../LoadingApi/Loading.style";
 
 export function LoadingModal() {
@@ -9,10 +9,9 @@ export function LoadingModal() {
 
  return (
   <Modal open={isModalOpen} onClose={handleModalClose}>
-    <Loading>
-        <CircularProgress color="secondary" />
-        
-    </Loading>
+   <Loading>
+    <CircularProgress color="secondary" />
+   </Loading>
   </Modal>
  );
 }

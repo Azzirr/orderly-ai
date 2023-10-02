@@ -21,6 +21,11 @@ import { ModeToggle, SignIn } from "..";
 import { SignOut } from "../SignButtons/SignOut";
 import { AdminPanel } from "../SignButtons/AdminPanel";
 import useClickOutside from "../../Hooks/useClickOutside";
+import ImportButton from "../../assets/clarity_import-line.png";
+import ExportButton from "../../assets/clarity_export-line.png";
+import AvatarPhoto from "../../assets/clarity_avatar-line.png";
+import LogoDesktopImg from "../../assets/logo.png";
+import LogoMobileImg from "../../assets/logo_mobile.png";
 
 export const Menu = () => {
  const { loggedUserRole, loggedUserEmail, changeModal, handleModalOpen } = useContext(OrderAiContext);
@@ -69,10 +74,10 @@ export const Menu = () => {
    <StyledMenu>
     <ModeToggle />
     <StyledIconButton onClick={handleImport}>
-     <img src="../../../src/assets/clarity_import-line.png" />
+     <img src={ImportButton} alt="Import button" />
     </StyledIconButton>
     <StyledIconButton onClick={handleExport}>
-     <img src=".../../../src/assets/clarity_export-line.png" />
+     <img src={ExportButton} alt="Export button" />
     </StyledIconButton>
     {loggedUserRole ? (
      <StyledIconButton onClick={showHideLoginButtons}>
@@ -80,7 +85,7 @@ export const Menu = () => {
      </StyledIconButton>
     ) : (
      <StyledIconButton onClick={showHideLoginButtons}>
-      <img src="../../../src/assets/clarity_avatar-line.png" />
+      <img src={AvatarPhoto} alt="Avatar" />
      </StyledIconButton>
     )}
    </StyledMenu>
@@ -134,10 +139,10 @@ export const LogoContainer = () => {
   <Link to="/">
    <StyledLogoContainer>
     <LogoMobile>
-     <img src="../../../src/assets/logo_mobile.png" alt="logo mobile" />
+     <img src={LogoMobileImg} alt="Logo mobile" />
     </LogoMobile>
     <LogoDesktop>
-     <img src="../../../src/assets/logo.png" alt="logo desktop" />
+     <img src={LogoDesktopImg} alt="Logo desktop" />
     </LogoDesktop>
    </StyledLogoContainer>
   </Link>

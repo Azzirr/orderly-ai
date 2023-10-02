@@ -10,6 +10,10 @@ import { generateRandomPastelColorsArray } from "../../Context/utils";
 import { OrderAiContext } from "../../Context/ContextProvider";
 import { ProductData, User, UserRole } from "../../Context/types";
 import useDecrypt from "../../Hooks/useDecrypt";
+import CheckButton from "../../assets/clarity_check-line.png";
+import CloseButton from "../../assets/clarity_close-line.png";
+import TrashButton from "../../assets/clarity_trash-line.png";
+import RefreshButton from "../../assets/clarity_refresh-line.png";
 
 const categoryExistsMessage = "Category name already exists!";
 
@@ -145,16 +149,16 @@ export const EditCategory = () => {
      <Grid container justifyContent={"end"} item desktop={4} laptop={4} tablet={4} mobile={12} order={{ tablet: 2, mobile: 1 }}>
       <Grid container justifyContent={"space-between"}>
        <StyledIconButton type="submit">
-        <img src="../../../src/assets/clarity_check-line.png" />
+        <img src={CheckButton} alt="Check button" />
        </StyledIconButton>
        {user && user.role === UserRole.admin ? (
         <StyledIconButton onClick={handleRemoveCategory}>
-         <img src="../../../src/assets/clarity_trash-line.png" />
+         <img src={TrashButton} alt="Trash button" />
         </StyledIconButton>
        ) : null}
        <StyledIconButton>
         <Link to="/admin">
-         <img src="../../../src/assets/clarity_close-line.png" />
+         <img src={CloseButton} alt="Close button" />
         </Link>
        </StyledIconButton>
       </Grid>
@@ -174,7 +178,7 @@ export const EditCategory = () => {
           alignItems: "center",
          }}>
          {" "}
-         <StyledColorsGridImage src="../../../src/assets/clarity_refresh-line.png" onClick={() => reloadColors()} /> Reload colors
+         <StyledColorsGridImage src={RefreshButton} alt="Refresh button" onClick={() => reloadColors()} /> Reload colors
         </Label>
        </StyledColorsGridTitle>
        <ColorsGrid>

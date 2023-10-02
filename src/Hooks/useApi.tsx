@@ -3,10 +3,13 @@ import { useContext } from "react";
 import { OrderAiContext } from "../Context/ContextProvider"
 
 const useApi = (apiKey: string) => {
+  const [isLoading, setIsLoading] = useState(false);
   const [responseFromAPI, setResponseFromAPI] = useState<string | null>(null);
   const { setGptData } = useContext(OrderAiContext);
 
   const callApi = (prompt: string) => {
+    setIsLoading(true);
+
     const apiUrl = "https://api.openai.com/v1/chat/completions";
 
     const requestOptions = {
@@ -35,10 +38,13 @@ const useApi = (apiKey: string) => {
       })
       .catch((error) => {
         console.error(error);
+      })
+      .finally(() => {
+        setIsLoading(false);
       });
   };
 
-  return { responseFromAPI, callApi };
+  return { responseFromAPI, callApi, isLoading };
 };
 
 export default useApi;

@@ -8,6 +8,8 @@ import * as Yup from "yup";
 import { OrderAiContext } from "../../Context/ContextProvider";
 import { ErrorMessage } from "../../ui/ErrorMessage/ErrorMessage.styles";
 import { Link, useNavigate } from "react-router-dom";
+import CheckButton from "../../assets/clarity_check-line.png";
+import CloseButton from "../../assets/clarity_close-line.png";
 
 const names = ["Darmowa", "Płatna"];
 const productExistsMessage = "Product name already exists!";
@@ -114,11 +116,11 @@ export const AddItem = () => {
      <Grid container justifyContent={"end"} item desktop={2} laptop={2} tablet={4} mobile={12} order={{ tablet: 2, mobile: 1 }}>
       <Grid container justifyContent={"space-between"}>
        <StyledIconButton type="submit">
-        <img src="../../../src/assets/clarity_check-line.png" />
+        <img src={CheckButton} alt="Check button" />
        </StyledIconButton>
        <StyledIconButton>
         <Link to="/admin">
-         <img src="../../../src/assets/clarity_close-line.png" />
+         <img src={CloseButton} alt="Close button" />
         </Link>
        </StyledIconButton>
       </Grid>

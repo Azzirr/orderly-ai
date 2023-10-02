@@ -12,6 +12,9 @@ import { ErrorMessage } from "../../ui/ErrorMessage/ErrorMessage.styles";
 import { UserRole } from "../../Context/types";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
+import CheckButton from "../../assets/clarity_check-line.png";
+import CloseButton from "../../assets/clarity_close-line.png";
+import TrashButton from "../../assets/clarity_trash-line.png";
 
 const names = ["Darmowa", "Płatna"];
 const productExistsMessage = "Product name already exists!";
@@ -48,7 +51,7 @@ export const EditItem = () => {
   dataToUse.forEach((category) => {
    category.products.forEach((item) => {
     if (item.id == Number(id)) {
-     let license = item.license.split(",");
+      const license = item.license.split(",");
      form.setValues({
       name: item.name || "",
       category: category.name || "",
@@ -87,7 +90,7 @@ export const EditItem = () => {
    description: Yup.string().min(3, "Must be 3 characters or more").max(150, "Must be 150 characters or less").required("Required"),
   }),
   onSubmit: (values) => {
-   let isProductNameExists = dataToUse.some((category) => category.name === values.name);
+   const isProductNameExists = dataToUse.some((category) => category.name === values.name);
    const errorElement = document.getElementById("error-message");
    if (isProductNameExists) {
     if (errorElement) {
@@ -97,7 +100,7 @@ export const EditItem = () => {
     if (errorElement) {
      errorElement.textContent = "";
     }
-    let categoryId = findCategoryId(values.category);
+    const categoryId = findCategoryId(values.category);
     editProduct(
      {
       id: productIdInt,
@@ -165,16 +168,16 @@ export const EditItem = () => {
      <Grid container justifyContent={"end"} item desktop={4} laptop={4} tablet={4} mobile={12} order={{ tablet: 2, mobile: 1 }}>
       <Grid container justifyContent={"space-between"}>
        <StyledIconButton type="submit">
-        <img src="../../../src/assets/clarity_check-line.png" />
+        <img src={CheckButton} alt="Check button" />
        </StyledIconButton>
        {loggedUserRole === UserRole.admin ? (
         <StyledIconButton onClick={handleDeleteProduct}>
-         <img src="../../../src/assets/clarity_trash-line.png" />
+         <img src={TrashButton} alt="Trash button" />
         </StyledIconButton>
        ) : null}
        <StyledIconButton>
         <Link to="/admin">
-         <img src="../../../src/assets/clarity_close-line.png" />
+         <img src={CloseButton} alt="Close button" />
         </Link>
        </StyledIconButton>
       </Grid>

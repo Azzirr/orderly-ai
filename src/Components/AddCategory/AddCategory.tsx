@@ -9,6 +9,9 @@ import { useContext, useState } from "react";
 import { ErrorMessage } from "../../ui/ErrorMessage/ErrorMessage.styles";
 import { OrderAiContext } from "../../Context/ContextProvider";
 import { Link, useNavigate } from "react-router-dom";
+import CheckButton from "../../assets/clarity_check-line.png";
+import CloseButton from "../../assets/clarity_close-line.png";
+import ReloadButton from "../../assets/clarity_refresh-line.png";
 
 const categoryExistsMessage = "Category name already exists!";
 
@@ -40,7 +43,7 @@ export const AddCategory = () => {
    color: Yup.string().required("Required"),
   }),
   onSubmit: (values) => {
-   let isCategoryNameExists = dataToUse.some((category) => category.name === values.name);
+   const isCategoryNameExists = dataToUse.some((category) => category.name === values.name);
 
    const errorElement = document.getElementById("error-message");
    if (isCategoryNameExists) {
@@ -98,38 +101,15 @@ export const AddCategory = () => {
      <Grid container justifyContent={"end"} item desktop={2} laptop={2} tablet={4} mobile={12} order={{ tablet: 2, mobile: 1 }}>
       <Grid container justifyContent={"space-between"}>
        <StyledIconButton type="submit">
-        <img src="../../../src/assets/clarity_check-line.png" />
+        <img src={CheckButton} alt="Check button" />
        </StyledIconButton>
        <StyledIconButton>
         <Link to="/admin">
-         <img src="../../../src/assets/clarity_close-line.png" />
+         <img src={CloseButton} alt="Close button" />
         </Link>
        </StyledIconButton>
       </Grid>
      </Grid>
-
-     {/* <Grid container spacing={2} justifyContent={"left"} item desktop={12} laptop={12} tablet={12} mobile={12} >
-      <Grid container justifyContent={"left"} item desktop={6} laptop={6} tablet={6} mobile={12}>
-       <Label htmlFor="name">Image:</Label>
-       <Input
-        variant="standard"
-        placeholder="Enter Image URL"
-        InputProps={{
-         disableUnderline: true,
-        }}
-        {...commonInputsProperties("image")}
-       />{" "}
-       {form.touched.image && form.errors.image ? <ModalErrorMessage>{form.errors.image}</ModalErrorMessage> : null}
-       {form.values.image !== "" ? (
-        <StyledImageContainer>
-         <StyledImage src={form.values.image} alt="Image" />
-        </StyledImageContainer>
-       ) : (
-        <StyledImagePreview>
-         <StyledPreviewText variant="subtitle2">Preview</StyledPreviewText>
-        </StyledImagePreview>
-       )}
-      </Grid> */}
      <Grid container justifyContent={"left"} item desktop={12} laptop={12} tablet={12} mobile={12} order={{ tablet: 2, mobile: 2 }}>
       <StyledColorsGridTitle>
        <Label htmlFor="color" style={{ alignSelf: "flex-start" }}>
@@ -143,7 +123,7 @@ export const AddCategory = () => {
          alignItems: "center",
         }}>
         {" "}
-        <StyledColorsGridImage src="../../../src/assets/clarity_refresh-line.png" onClick={() => reloadColors()} /> Reload colors
+        <StyledColorsGridImage src={ReloadButton} alt="Reload button" onClick={() => reloadColors()} /> Reload colors
        </Label>
       </StyledColorsGridTitle>
       <ColorsGrid>
